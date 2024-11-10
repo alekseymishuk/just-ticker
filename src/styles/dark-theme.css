@@ -1,0 +1,15 @@
+body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+.navbar,
+.footer {
+    background-color: #1c1c1c;
+}
+
+.navbar a,
+.footer p {
+    color: #f1f1f1;
+}

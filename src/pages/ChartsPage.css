@@ -1,0 +1,22 @@
+.charts-page {
+    padding: 20px;
+}
+
+.charts-page h1 {
+    color: #58a6ff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.currency-chart {
+    background-color: #1f1f1f;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.currency-chart h2 {
+    color: #ffffff;
+    margin-bottom: 10px;
+    text-align: center;
+}
