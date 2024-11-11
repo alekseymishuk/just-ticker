@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar: React.FC = () => {
+    const [activeTab, setActiveTab] = useState<string>('Home');
+
+    useEffect(() => {
+        const currentPath = window.location.pathname;
+        setActiveTab(currentPath === '/' ? 'Home' : currentPath.slice(1));
+    }, []);
+
     return (
         <nav className="navbar">
             <div className="navbar-logo">CryptoCorp</div>

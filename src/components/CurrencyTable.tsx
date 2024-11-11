@@ -1,15 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { fetchCryptoPrice } from '../services/api';
-import { interval, switchMap, Subscription } from 'rxjs';
+import { interval, switchMap } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { CryptoPrice } from '../types';
 import './CurrencyTable.css';
 import CurrencyChartModal from './CurrencyChartModal';
 import { Controls } from './Controls';
 import { useCryptoPrices } from '../hooks/useCurrencyPrices';
-import { currencyPricesObservable$ } from '../stores/currencyStore';
-
-const currencies = ['BTC', 'ETH', 'ADA', 'SOL'] as const;
+import { currencies } from '../constants';
 
 const CurrencyTable: React.FC = () => {
     const prices = useRef<Record<string, CryptoPrice>>({});
@@ -19,14 +17,6 @@ const CurrencyTable: React.FC = () => {
     const rowRefs = React.useRef<Record<string, HTMLTableRowElement | null>>({});
 
     useCryptoPrices({ currencies, frequency, paused });
-
-    useEffect(() => {
-        const subscription: Subscription = currencyPricesObservable$.subscribe(updatedPrices => {
-            prices.current = updatedPrices;
-        });
-
-        return () => subscription.unsubscribe();
-    }, []);
 
     useEffect(() => {
         const subscription = interval(frequency)
