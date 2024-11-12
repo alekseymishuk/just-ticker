@@ -1,0 +1,26 @@
+.tableContainer {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: var(--mantine-color-dark-5);
+    overflow: hidden;
+}
+
+.tableHeader {
+    background-color: var(--mantine-color-dark-4);
+    color: var(--mantine-color-dark-0);
+    font-weight: bold;
+}
+
+.tableRow {
+    transition: background-color 0.2s ease;
+}
+
+.tableRow:hover {
+    background-color: var(--mantine-color-dark-3);
+    cursor: pointer;
+}
+
+.tableCell {
+    padding: 1rem;
+    transition: color 0.3s ease;
+}

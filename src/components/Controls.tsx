@@ -1,6 +1,5 @@
 import React from 'react';
-import { Slider, Button } from '@mui/material';
-import Box from '@mui/material/Box';
+import { Slider, Button, Box, Text } from '@mantine/core';
 import './Controls.css';
 
 type ControlsProps = {
@@ -19,17 +18,16 @@ export const Controls: React.FC<ControlsProps> = ({
     return (
         <div className="controls">
             <div className="slider">
-                <label>Frequency: {frequency}ms</label>
-                <Box sx={{ width: 300 }}>
+                <Text size="sm">Frequency: {frequency}ms</Text>
+                <Box style={{ width: 300 }}>
                     <Slider
                         defaultValue={frequency}
-                        getAriaValueText={value => `${value}ms`}
+                        label={value => `${value}ms`}
                         aria-labelledby="discrete-slider"
-                        valueLabelDisplay="auto"
                         step={100}
                         min={0}
                         max={2000}
-                        onChange={(_, value) => onFrequencyChange(value as number)}
+                        onChange={value => onFrequencyChange(value as number)}
                         value={frequency}
                     />
                 </Box>
